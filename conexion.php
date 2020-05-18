@@ -23,7 +23,7 @@ else
 
 //mysqli_select_db($database,$conexion)
 
-//or die("Seleccion de base de datos fallida " . mysqli_error());
+//or die("Seleccion de base de datos fallida " . mysqli_error($conexion));
 
 ?>
 

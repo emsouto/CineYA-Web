@@ -26,12 +26,14 @@ foreach ($pelEstrenos->find('article') as $key ) {
 }
 
 $contenido=$key->find('div[class=mt]',0);
-foreach ($contenido->find('span') as $genero) {
-	
+foreach ($contenido->find('p') as $genero) {
+
+	//var_dump($genero);
+	//echo $genero;
 }
 
-$enviar=mysqli_query($conexion,"INSERT INTO iniciopelis values ('$nombre','$imagen','$genero')");
-
+$enviar=mysqli_query($conexion,"INSERT INTO iniciopelis values ('$nombre','$imagen','$genero',date('Y-m-d H:i:s'))");
+//var_dump($enviar);
 
 }
 
