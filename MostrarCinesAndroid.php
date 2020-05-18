@@ -2,10 +2,14 @@
    include ('conexion.php');
     
 
-$res = mysqli_query($conexion,"select * from cines");
+$res = mysqli_query($conexion,"select Nombre, Direccion, Url from cines");
 
-    while($row = mysqli_fetch_array($res)) $array[] = $row;
-	$json = json_encode($array); 	
+    
+
+    for ($set = array(); $row = $res->fetch_assoc(); $set[] = $row);    
+    // print_r($set);
+    $json = json_encode($set);
     echo $json;
+
   
 ?>
