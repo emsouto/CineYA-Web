@@ -44,43 +44,42 @@ INSERT INTO `administradores` (`usuario`, `contrasena`) VALUES
 --
 -- Estructura de tabla para la tabla `cines`
 --
-
-CREATE TABLE IF NOT EXISTS `cines` (
-  `Id` int(90) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cines` (
+  `Id` int(90) NOT NULL,
   `Nombre` text NOT NULL,
   `Direccion` varchar(90) NOT NULL,
   `Url` varchar(90) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
-
+  `Imagen` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 -- Volcado de datos para la tabla `cines`
 --
 
-INSERT INTO `cines` (`Id`, `Nombre`, `Direccion`, `Url`) VALUES
-(1, 'Hoyts Abasto	', 'Av. Corrientes 3200. Abasto.', 'http://guia.lanacion.com.ar/cine/sala/hoyts-abasto-de-buenos-aires-sa95'),
-(2, 'Atlas Patio Bullrich	', 'Posadas 1245. Recoleta.		', 'http://guia.lanacion.com.ar/cine/sala/atlas-patio-bullrich-sa119'),
-(3, 'Village Recoleta', 'Vicente Lopez y Junin. Recoleta.', 'http://guia.lanacion.com.ar/cine/sala/village-recoleta-sa400'),
-(4, 'Cinema City General Paz	', 'Av. Cabildo 2702. Belgrano.', 'http://guia.lanacion.com.ar/cine/sala/cinema-city-general-paz-sa126'),
-(5, 'Showcase Belgrano', 'Monroe 1655. Belgrano.', 'http://guia.lanacion.com.ar/cine/sala/showcase-cinemas-belgrano-sa170'),
-(6, 'Multiplex Belgrano	', 'Obligado y Mendoza. Belgrano.', 'http://guia.lanacion.com.ar/cine/sala/belgrano-multiplex-sa125'),
-(7, 'Arte Multiplex Belgrano', 'Av. Cabildo 2829. Belgrano.', 'http://guia.lanacion.com.ar/cine/sala/cabildo-multiplex-sa1006'),
-(8, 'Cinemark Caballito', 'Av. La Plata 96. Caballito.		', 'http://guia.lanacion.com.ar/cine/sala/cinemark-caballito-sa130'),
-(9, 'Village Caballito', 'Av. Rivadavia 5071. Caballito.	', 'http://guia.lanacion.com.ar/cine/sala/village-caballito-sa446'),
-(10, 'Premier', 'Av. Corrientes 1565. San Nicolas.', 'http://guia.lanacion.com.ar/cine/sala/premier-sa120'),
-(12, 'Lorca', 'Av. Corrientes 1428. San Nicolas.', 'http://guia.lanacion.com.ar/cine/sala/lorca-sa110'),
-(13, 'Monumental Lavalle', 'Lavalle 780. San Nicolas.', 'http://guia.lanacion.com.ar/cine/sala/monumental-sa229'),
-(14, 'Espacio INCAA Km 0 Gaumont', 'Av. Rivadavia 1635. Monserrat.', 'http://guia.lanacion.com.ar/cine/sala/espacio-incaa-sala-gaumont-sa107'),
-(15, 'Monumental Lavalle 4D', 'Lavalle 780. San Nicolas.', 'http://guia.lanacion.com.ar/cine/sala/monumental-4d-e-motion-sa1167'),
-(16, 'Atlas Flores', 'Rivera Indarte 44. Flores.	', 'http://guia.lanacion.com.ar/cine/sala/atlas-flores-sa133'),
-(18, 'Cinemark Palermo', 'Beruti 3399. Palermo.', 'http://guia.lanacion.com.ar/cine/sala/cinemark-palermo-sa223'),
-(19, 'Atlas Alcorta', 'Salguero 3172. Palermo.		', 'http://guia.lanacion.com.ar/cine/sala/atlas-alcorta-sa985'),
-(20, 'Cinemark Puerto Madero', 'Alicia Moreau de Justo 1920. Puerto Madero.', 'http://guia.lanacion.com.ar/cine/sala/cinemark-puerto-madero-sa102'),
-(21, 'Cinema Devoto', 'J. P. Varela 4866. Villa Devoto.	', 'http://guia.lanacion.com.ar/cine/sala/cinema-devoto-sa407'),
-(22, 'Hoyts Dot', 'Vedia 3626, 3er Nivel. Saavedra.', 'http://guia.lanacion.com.ar/cine/sala/hoyts-dot-sa520'),
-(23, 'Hoyts Dot Premium', 'Vedia 3626, 3er Nivel. Saavedra.', 'http://guia.lanacion.com.ar/cine/sala/hoyts-dot-premium-sa522'),
-(24, 'CPM Cinemas Del Parque Shopping', 'Cuenca 3035 Villa del Parque.', 'http://guia.lanacion.com.ar/cine/sala/cpm-cinemas-del-parque-shopping-sa1154');
+INSERT INTO `cines` (`Id`, `Nombre`, `Direccion`, `Url`, `Imagen`) VALUES
+(1, 'Hoyts Abasto ', 'Av. Corrientes 3200. Abasto.', 'http://guia.lanacion.com.ar/cine/sala/hoyts-abasto-de-buenos-aires-sa95', 'imagenes/logocines/HoytsAbasto.png '),
+(2, 'Atlas Patio Bullrich ', 'Posadas 1245. Recoleta.   ', 'http://guia.lanacion.com.ar/cine/sala/atlas-patio-bullrich-sa119', 'imagenes/logocines/AtlasPatioBullrich.png'),
+(3, 'Village Recoleta', 'Vicente Lopez y Junin. Recoleta.', 'http://guia.lanacion.com.ar/cine/sala/village-recoleta-sa400', 'imagenes/logocines/VillageRecoleta.png '),
+(4, 'Cinema City General Paz  ', 'Av. Cabildo 2702. Belgrano.', 'http://guia.lanacion.com.ar/cine/sala/cinema-city-general-paz-sa126', 'imagenes/logocines/CinemaCityGeneralPaz.png '),
+(5, 'Showcase Belgrano', 'Monroe 1655. Belgrano.', 'http://guia.lanacion.com.ar/cine/sala/showcase-cinemas-belgrano-sa170', 'imagenes/logocines/ShowcaseBelgrano.png'),
+(6, 'Multiplex Belgrano ', 'Obligado y Mendoza. Belgrano.', 'http://guia.lanacion.com.ar/cine/sala/belgrano-multiplex-sa125', '/imagenes/logocines/MultiplexBelgrano.png '),
+(7, 'Arte Multiplex Belgrano', 'Av. Cabildo 2829. Belgrano.', 'http://guia.lanacion.com.ar/cine/sala/cabildo-multiplex-sa1006', 'imagenes/logocines/ArteMultiplexBelgrano.png'),
+(8, 'Cinemark Caballito', 'Av. La Plata 96. Caballito.    ', 'http://guia.lanacion.com.ar/cine/sala/cinemark-caballito-sa130', 'imagenes/logocines/CinemarkCaballito.png '),
+(9, 'Village Caballito', 'Av. Rivadavia 5071. Caballito.  ', 'http://guia.lanacion.com.ar/cine/sala/village-caballito-sa446', 'imagenes/logocines/VillageCaballito.png'),
+(10, 'Premier', 'Av. Corrientes 1565. San Nicolas.', 'http://guia.lanacion.com.ar/cine/sala/premier-sa120', 'imagenes/logocines/Premier.png'),
+(12, 'Lorca', 'Av. Corrientes 1428. San Nicolas.', 'http://guia.lanacion.com.ar/cine/sala/lorca-sa110', 'imagenes/logocines/Lorca.png'),
+(13, 'Monumental Lavalle', 'Lavalle 780. San Nicolas.', 'http://guia.lanacion.com.ar/cine/sala/monumental-sa229', 'imagenes/logocines/MonumentalLavalle.png '),
+(14, 'Espacio INCAA Km 0 Gaumont', 'Av. Rivadavia 1635. Monserrat.', 'http://guia.lanacion.com.ar/cine/sala/espacio-incaa-sala-gaumont-sa107', 'imagenes/logocines/EspacioINCAAKm0Gaumont.png'),
+(15, 'Monumental Lavalle 4D', 'Lavalle 780. San Nicolas.', 'http://guia.lanacion.com.ar/cine/sala/monumental-4d-e-motion-sa1167', 'imagenes/logocines/MonumentalLavalle4D.png'),
+(16, 'Atlas Flores', 'Rivera Indarte 44. Flores.  ', 'http://guia.lanacion.com.ar/cine/sala/atlas-flores-sa133', 'imagenes/logocines/AtlasFlores.png '),
+(18, 'Cinemark Palermo', 'Beruti 3399. Palermo.', 'http://guia.lanacion.com.ar/cine/sala/cinemark-palermo-sa223', 'imagenes/logocines/CinemarkPalermo.png'),
+(19, 'Atlas Alcorta', 'Salguero 3172. Palermo.    ', 'http://guia.lanacion.com.ar/cine/sala/atlas-alcorta-sa985', 'imagenes/logocines/AtlasAlcorta.png '),
+(20, 'Cinemark Puerto Madero', 'Alicia Moreau de Justo 1920. Puerto Madero.', 'http://guia.lanacion.com.ar/cine/sala/cinemark-puerto-madero-sa102', 'imagenes/logocines/CinemarkPuertoMadero.png'),
+(21, 'Cinema Devoto', 'J. P. Varela 4866. Villa Devoto. ', 'http://guia.lanacion.com.ar/cine/sala/cinema-devoto-sa407', 'imagenes/logocines/CinemaDevoto.png'),
+(22, 'Hoyts Dot', 'Vedia 3626, 3er Nivel. Saavedra.', 'http://guia.lanacion.com.ar/cine/sala/hoyts-dot-sa520', 'imagenes/logocines/HoysDot.png'),
+(23, 'Hoyts Dot Premium', 'Vedia 3626, 3er Nivel. Saavedra.', 'http://guia.lanacion.com.ar/cine/sala/hoyts-dot-premium-sa522', 'imagenes/logocines/HoytsDotPemium.png'),
+(24, 'CPM Cinemas Del Parque Shopping', 'Cuenca 3035 Villa del Parque.', 'http://guia.lanacion.com.ar/cine/sala/cpm-cinemas-del-parque-shopping-sa1154', 'imagenes/logocines/CPMCinemasDelParqueShopping.png');
 
+--
 -- --------------------------------------------------------
 
 --

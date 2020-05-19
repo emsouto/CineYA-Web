@@ -26,7 +26,7 @@ margin:auto">
 <div class="carousel-inner">
 	
 <?php
-$sqlQuery = "SELECT Nombres, Url ,Genero FROM iniciopelis";
+$sqlQuery = "SELECT Nombres, Url ,Genero,Tipo FROM iniciopelis";
 $resultSet = mysqli_query($conexion, $sqlQuery);
 $setActive = 0;
 $sliderHtml = '';
@@ -41,7 +41,7 @@ $sliderHtml.= "<div class='col-xs-12'>";
 $sliderHtml.= "<img src='".$sliderImage['Url']."' class='img-responsive'>";
 $sliderHtml.="<div class='carousel-caption d-none d-md-block'>";
 $sliderHtml.="<h1>".$sliderImage['Nombres']."</h1>"	;
-$sliderHtml.="<p>".$sliderImage['Genero']."<p>";
+$sliderHtml.="<p>".$sliderImage['Genero'].$sliderImage['Tipo']."<p>";
 $sliderHtml.= "</div></div></div>";
 }
 echo $sliderHtml;

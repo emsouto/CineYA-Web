@@ -16,46 +16,39 @@ $pelEstrenos=$htmInicio->find('div[class=container no-p]',0);
 foreach ($pelEstrenos->find('article') as $key ) {
 	foreach($key->find('img') as $element) {
 
-		
-		$nombre=$element->alt;
-		
-		$st1=substr($element->src, 0,-40);
-		$protocolo=$st1;
-		$img=$element->getAttribute('data-src');
-		$imagen=$protocolo.$img;
+			
+			$nombre=$element->alt;
+			
+			$st1=substr($element->src, 0,-40);
+			$protocolo=$st1;
+			$img=$element->getAttribute('data-src');
+			$imagen=$protocolo.$img;
+	}
+
+	$contenido=$key->find('div[class=mt]',0);
+	$genero=$contenido->find('p',0);
+	
+	    $tipo=$contenido->find('p',1);
+	    
+	    //foreach ($contenido->find('p') as $genero) {
+
+
+
+		//var_dump($genero);
+		//echo $genero;
+		$fecha=date('Y-m-d H:i:s');
+	$enviar=mysqli_query($conexion,"INSERT INTO iniciopelis values ('$nombre','$imagen','$genero','$fecha','$tipo')");
+	//}
+	
+	//echo $nombre ."<br>"; echo $imagen."<br>";
+	
+	//var_dump($enviar);
+
 }
 
-$contenido=$key->find('div[class=mt]',0);
-foreach ($contenido->find('p') as $genero) {
-
-	//var_dump($genero);
-	//echo $genero;
-}
-
-$enviar=mysqli_query($conexion,"INSERT INTO iniciopelis values ('$nombre','$imagen','$genero',date('Y-m-d H:i:s'))");
-//var_dump($enviar);
-
-}
 
 
 
-/*
-foreach($pelEstrenos->find('img') as $element) {
-
-		
-		$nombre=$element->alt;
-		$st1=substr($element->src, 0,-40);
-		$protocolo=$st1;
-		$img=$element->getAttribute('data-src');
-		$imagen=$protocolo.$img;
-		 
-	
-	
-
-		
-
-		$enviar=mysqli_query($conexion,"INSERT INTO iniciopelis values ('$nombre','$imagen')");
-		
 	
 		
 	
@@ -65,9 +58,9 @@ foreach($pelEstrenos->find('img') as $element) {
 
 
 	
-}
 
-*/
+
+
       
    ?>
     

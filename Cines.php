@@ -13,7 +13,7 @@ include ("conexion.php");
  
  <?php
 
-$query = "SELECT Nombre,Direccion,Id FROM cines";
+$query = "SELECT Nombre,Direccion,Id,Imagen FROM cines";
 
 
 $resultado = mysqli_query($conexion,$query);
@@ -30,7 +30,7 @@ else{
 <?php while($rows = mysqli_fetch_array($resultado)){?>
 <div class="md-col-2" style="margin-left:100px;margin-top:50px;margin-right:75px;display:flex">
     <div class="card"  style="width: 10rem;">
-  <img class="card-img-top" src="imagenes\Logos Cines\Arte Multiplex Belgrano.png" alt="Card image cap">
+  <img class="card-img-top" src=<?=$rows['Imagen']?> alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title" ><?=$rows['Nombre']?></h5>
     <p class="card-text" ><?=$rows['Direccion']?></p>
