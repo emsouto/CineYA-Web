@@ -1,9 +1,9 @@
 <?php
 
 $hostname= 'localhost';
-$database= 'cineya';
-$username= 'root';
-$password= '';
+$database= 'u523841530_cineya';
+$username= 'u523841530_emmanuel';
+$password= 'Cine-Ya12345';
 
 //crear la conexion
 
@@ -23,8 +23,7 @@ else
 
 //mysqli_select_db($database,$conexion)
 
+
 //or die("Seleccion de base de datos fallida " . mysqli_error());
 
 ?>
-
-

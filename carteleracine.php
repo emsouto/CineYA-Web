@@ -1,143 +1,237 @@
 <?php
 
-include("header.html");
-include ("conexion.php");
-require 'simple_html_dom.php';
+
+include('header.html');
+include('conexion.php');
+include('simple_html_dom.php');
 
 ?>
+<html>
+    
+    <body>
+        
+        <div class="full">
+            
+            <div class="main">
+                
+                <div class="top-header span_top">
+				<div class="logo">
+					<a href="index"><img src="images/logos.png" alt="" /></a>
+					<p>CineYa</p>
+				</div>
 
+				<div class="clearfix"></div>
+			</div>
+                <div class="right-content">
+                    
+                    <div class="right-content-heading-left">
+						<h3 class="head">Cartelera</h3>
+					</div>
 <?php
+
+   // function Cuarentena($conexion){
+
+ 
+    
+
+        
+        $test=file_get_html('https://www.lanacion.com.ar/cartelera-de-cine');
+        $carteleraid=$test->find('div[class=Listas de peliculas]',0);
+       
+       if (empty($carteleraid)) {
+            
+            ?>
+                    <img src="images/peliculas.png">
+                    
+                    <!-- si lo hacemos con php-->
+<?php
+/*echo '<div id="info">Estimados clientes las salas de los cines se encuentran cerradas</div>';*/
+?>
+                    <h3 class="head">Proximos Estrenos</h3>
+                    
+
+		<div class="review-slider">
+       <ul id="flexiselDemo1">
+                 
+                 <?php
+            
+                 $qwerys = "SELECT Nombres, Url FROM estrenos limit 10"; 
+            
+            if(!$result = mysqli_query($conexion, $qwerys)) die();
+               
+            
+             
+                 while($sliderImages=mysqli_fetch_assoc($result)){?>
+                <li><img src="<?php echo $sliderImages['Url'] ?>" alt="<?php echo $sliderImages['Nombres'] ?>"/></li>
+                <?php 
+                 
+                     /*cierra el while*/
+                 } 
+                 ?>
+		</ul>
+			<script type="text/javascript">
+		$(window).load(function() {
+			
+		  $("#flexiselDemo1").flexisel({
+				visibleItems: 6,
+				animationSpeed: 1000,
+				autoPlay: true,
+				autoPlaySpeed: 3000,    		
+				pauseOnHover: false,
+				enableResponsiveBreakpoints: true,
+				responsiveBreakpoints: { 
+					portrait: { 
+						changePoint:480,
+						visibleItems: 2
+					}, 
+					landscape: { 
+						changePoint:640,
+						visibleItems: 3
+					},
+					tablet: { 
+						changePoint:768,
+						visibleItems: 4
+					}
+				}
+			});
+			});
+		</script>
+		<script type="text/javascript" src="js/jquery.flexisel.js"></script>	
+		</div>
+<?php
+}else{
+echo "Error";
+}
+//}
+    
 		if(empty($_POST['Id'])){
 			echo 'Not FOUND !!!!';
         }else{
       
             switch($_POST['Id']){
+
                     
     case 1:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/hoyts-abasto-de-buenos-aires-sa95');
-               $prueba=str_get_html($test);
-        foreach($prueba->find('img') as $element) 
-       echo $element->src . '<br>';
-?><img src="https://bucket1.glanacion.com/anexos/fotos/cartelera/shazam-9023w120.jpg"  />
-  <?php           
-            break;
-                    
+
+    
+
+    
+
+  break;
+  
+
+
     case 2:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/atlas-patio-bullrich-sa119');
-            echo $test;
+
+
+    
+   
             break;
                     
     case 3:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/village-recoleta-sa400');
-            echo $test;
+
+    
+   
             break;
                     
    case 4:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/cinema-city-general-paz-sa126');
-            echo $test;
+   
             break;
                     
     case 5:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/showcase-cinemas-belgrano-sa170');
-            echo $test;
+    
             break;
                     
     case 6:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/belgrano-multiplex-sa125');
-            echo $test;
+   
             break;
                     
     case 7:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/cabildo-multiplex-sa1006');
-            echo $test;
+    
             break;
                     
     case 8:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/cinemark-caballito-sa130');
-            echo $test;
+    
             break;
                     
     case 9:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/village-caballito-sa446');
-            echo $test;
+    
             break;
                     
     case 10:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/premier-sa120');
-            echo $test;
+   
             break;
                     
     case 11:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/bama-cine-arte-sa471');
-            echo $test;
+    
             break;
                     
     case 12:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/lorca-sa110');
-            echo $test;
+    
             break;
                     
     case 13:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/monumental-sa229');
-            echo $test;
+    
             break;
                     
     case 14:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/espacio-incaa-sala-gaumont-sa107');
-            echo $test;
+    
             break;
                     
     case 15:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/monumental-4d-e-motion-sa1167');
-            echo $test;
+    
             break;
                     
     case 16:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/atlas-flores-sa133');
-            echo $test;
+    
             break;
                     
     case 18:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/cinema-city-general-paz-sa126');
-            echo $test;
+    
             break;
                     
     case 19:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/atlas-alcorta-sa985');
-            echo $test;
+    
             break;
                     
     case 20:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/cinemark-puerto-madero-sa102');
-            echo $test;
+    
             break;
                     
     case 21:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/cinema-devoto-sa407');
-            echo $test;
+    
             break;
                     
     case 22:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/hoyts-dot-sa520');
-            echo $test;
+    
             break;
                     
     case 23:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/hoyts-dot-premium-sa522');
-            echo $test;
+    
             break;
                     
     case 24:
-    $test=file_get_contents('http://guia.lanacion.com.ar/cine/sala/cpm-cinemas-del-parque-shopping-sa1154');
-            echo $test;
+    
             break;
                     
                     
-                       }               
+                               
            
            }
      
-
+        }
     
 ?>
-
+                    </div>
+                <div class="footer">   
+		<h6>CineYa </h6>
+		<p class="claim">Descarga la aplicacion mobile</p>
+		<a href="https://www.cineya.site/contacto">Cineya@cineya.site</a>
+		<div class="copyright">
+        </div>
+	</div>
+                </div>
+            <div class="clearfix"></div>
+        </div>
+</body>
+</html>

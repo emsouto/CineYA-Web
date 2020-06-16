@@ -1,7 +1,7 @@
 <?php
 
 //envia el mail desde contactos
-$destino="emanuelsouto10@gmail.com";
+$destino="administrador@cineya.site";
 $nombre= $_POST["nombre"];
 $correo= $_POST["correo"];
 $asunto= $_POST["asunto"];

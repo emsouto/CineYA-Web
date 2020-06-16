@@ -4,28 +4,44 @@ include("header.html");
 include ("conexion.php");
 
 ?>
-<style>
 
- body{ background:black;  
- }  
+<html>
+<body>
+<div class="full">
+    <div class="main">
+        <div class="contact-content">
+        <div class="top-header">
+				<div class="logo">
+					<a href="index"><img src="images/logos.png" alt="" /></a>
+					<p>CineYa</p>
+				</div>
+				
+				<div class="clearfix"></div>
+			</div>
+                <div class="right-content">
+                    <h3 class="head">Peliculas en cartelera</h3>
+              
+                   <img src="images/peliculas.png">
+
+ <!-- <h1>En virtud de la normativa establecida por el Gobierno Nacional, los cines permanecerán cerrados hasta nuevo aviso.</h1>
+           -->  
+</div>
+            <div class="clearfix"> </div>
+</div> 
+<div class="footer">   
+		<h6>CineYa </h6>
+		<p class="claim">Descarga la aplicacion mobile</p>
+		<a href="cineya@gmail.com">Cineya@gmail.com</a>
+		<div class="copyright">
+        </div>
+	</div>
+        
+        </div>
     
-</style>
+        <div class="clearfix"></div>
 
-<div class='col-12' style= color:red;font-size:50px;margin:auto;width:50%;border:3pxsolidgreen;padding:10px;><p>PELICULAS EN CARTELERA</p> </div>
-
-<?php
-
-include_once ("simple_html_dom.php");
-
-$html =file_get_html('http://guia.lanacion.com.ar/resultado/pelicula/zonas-2,orden-alfabetico');
-$inicio=$html->find('section[class=buscadorResultados floatFix]',0);
-$peliculas=$html->find('section[class=columnaResultados',0);
-
-
-echo "</div>";
-?>
-
-<?php
-include("footer.html")
-
-?>
+    
+    </div>
+    </body>
+    
+    </html>
